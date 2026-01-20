@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+About
+{% endblock %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+
+{%block js %}
+<script src="{% static 'js/about.js' %}"></script>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container mt-5">
+        <h1 class="mb-4">About Me</h1>
+        <p>My name is Dustin and I’m learning Django. I enjoy building web apps and customizing layouts.</p>
+
+    </div>
+{% endblock %}
