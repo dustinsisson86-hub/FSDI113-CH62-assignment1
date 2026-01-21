@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-primary">Draft Posts</h2>
+
+    {% if post %}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for p in post %}
+            <div class="col">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ p.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ p.subtitle }}</h6>
+                        <p class="card-text">{{ p.body|truncatewords:20 }}</p>
+                        <a href="{% url 'post_detail' p.id %}" class="btn btn-outline-primary btn-sm">View Post</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Status: {{ p.status }} • {{ p.created_on|date:"M d, Y" }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted">No drafts found.</p>
+    {% endif %}
+</div>
+
+{% endblock content %}

@@ -15,9 +15,8 @@
       <p class="mb-1"><strong>Author:</strong> {{ object.author }}</p>
       <p class="text-muted"><strong>Published:</strong> {{ object.created_on|date:"F j, Y" }}</p>
 
-      <a href="{% url 'post_list' %}" class="btn btn-primary mt-3">Back to all posts</a>
+     <a class="btn btn-primary" href="{% url 'post_edit' object.id %}">Edit Post</a>
 
-    </div>
-  </div>
-</div>
-{% endblock %}
+     <a class="btn btn-danger" href="{% url 'post_delete' object.id %}">Delete Post</a>
+
+     {% endblock %}
